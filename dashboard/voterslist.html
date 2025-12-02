@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/election_commission_project_f/src/styles/output.css">
+    <title>Voter Details </title>
+</head>
+<body> 
+    
+     
+    <!-- Overall Main Container  -->
+  <div class="flex h-screen font-poppins">
+
+                                                <!-- Sidebar -->
+<aside id="sidebar" 
+class="w-64 bg-white border-r border-gray-300 transition-all duration-300 
+                fixed md:static h-full z-50 hidden md:block
+              -translate-x-full md:translate-x-0"> 
+ 
+    <!-- Logo Container -->   
+    <div class="p-5 flex items-center justify-between relative">  
+        
+        <div class="flex items-center"> 
+            <!-- Logo -->  
+            <img title="Election commission Logo" src="../imgs/dashboardimg/logo/Logo.svg"
+                 class="h-8 w-8  sidebar-logo">
+            <h1 id="sidebarText" class="text-xl ml-2 font-semibold sidebar-text">Election Team</h1>
+        </div>   
+   
+        <!-- Toggle Button -->    
+        <button id="toggleBtn" type="button"     
+                class="w-8 h-8 cursor-pointer absolute  -right-4   flex items-center justify-end  sm:justify-end md:justify-center  border border-gray-400 bg-white rounded-full transition-all duration-300">
+            <img title="arrow icon     "  
+                 src="../imgs/dashboardimg/navbararrow/leftarrow.svg"    
+                 class="arrowIcon w-4 h-4 "> 
+        </button> 
+    </div>
+ 
+
+    <!-- Navbar -->
+     <nav class="p-2 ">
+        <ul class="p-2 space-y-2"> 
+
+            <!-- Dashbaord  --> 
+            <li class="cursor-pointer">
+                <a href="dashboard.html" class="flex items-center p-3 font-semibold text-sm  rounded-full hover:bg-gray-200  transition duration-300  hover:text-[#009699]">
+               
+                    <!-- Icon  -->
+                    <i>
+                        <img title="dashboard icon"
+                         src="../imgs/dashboardimg/asidebar/home.svg" class=" w-6 h-6">
+ 
+                    </i>
+
+                    <p class="sidebar-text ml-2">Dashboard</p>  
+
+
+                </a>    
+            </li>    
+  
+            <!-- Voter List  -->
+            <li class="cursor-pointer"> 
+                <a href="voterslist.html" class="flex items-center p-3 font-semibold text-sm rounded-full hover:bg-gray-200  transition duration-300  hover:text-[#009699]">
+
+                    <i>
+                        <img title="voter list icon " src="../imgs/dashboardimg/asidebar/voter_list.svg" class="w-6 h-6 ">
+                    </i>
+
+                    <p class="sidebar-text ml-2 ">Voters List</p>
+                </a>
+            </li> 
+
+            <!-- Aside Import voter List  -->
+            <li class=" cursor-pointer">
+                <a href="" class="flex justify-start items-center  text-sm font-semibold  p-3 rounded-full  hover:bg-gray-200  transition duration-300  hover:text-[#009699] ">
+                    <i>
+                        <img src="../imgs/dashboardimg/asidebar/import_voter.svg" class=" w-6 h-6 hover:text-[#009699]"  alt=""> 
+                    </i> 
+                      <p class="sidebar-text ml-2 f ">Import Voter List</p> 
+                
+                </a>    
+            </li> 
+            
+            <!-- Aside Settings   -->
+            <li class="">
+                <a href="profiledetails.html" class="flex justify-start text-sm font-semibold items-center  p-3 rounded-full  hover:bg-gray-200  transition duration-300 hover:text-[#009699] ">
+                    <i>
+                        <img src="../imgs/dashboardimg/asidebar/settings.svg" class=" w-6 h-6 hover:text-[#009699]"  alt="">
+                    </i> 
+        
+                   <p class="sidebar-text ml-2 f ">Settings</p> 
+                </a>    
+            </li>  
+        </ul> 
+
+        <!-- Aside image -->
+        <div class="aside_img_container mt-32">
+            <img title="aside image" src="../imgs/dashboardimg/asidebar/amico.png" class="w-full sidebar-image">
+        </div>
+
+        
+    </nav>
+
+
+
+</aside> 
+
+
+                         <!-- Main Content -->
+  <div class="flex-1 flex flex-col  bg-[#F6F6F8] ">
+     
+                                                        <!-- Main Container  -->
+ <main class="px-3 md:px-5 md:py-0  h-full bg-white rounded-lg boxShadow  md:m-5">
+        
+             
+   
+<!-- Voter List Top Navigation  -->  
+    <header class=" flex justify-between items-center px-0 py-4  mb-2 ">
+ 
+ 
+
+<div class=" flex items-center justify-center   ">
+
+    <!-- Back Nav Icon  --> 
+     <i class="  md:hidden ">
+        <img src="../imgs/voterListIcons/nav-arrow-left.svg" alt="" class="w-6 h-6">
+     </i> 
+ 
+        <!-- Voter list Title  -->  
+      <span class="text-xl md:text-2xl font-semibold md:ml-2 ml-3 "> Voter List 
+        <br> 
+        <p class="text-sm hidden md:block  text-gray-500">Manage and Track all register Voter's </p>
+      </span>
+
+   </div>
+         
+  
+ 
+    <!-- Language select container   --> 
+      <div class=" flex justify-between w-auto text-md  ">  
+
+  
+            <!--Language Selection   -->
+         <div class="flex justify-evenly items-center border border-gray-300 bg-[#dde1e4] md:bg-[#009699] text-white rounded-lg  py-0 md:px-2 md:mr-6
+                     cursor-pointer px-2 ">      
+        <!-- Lang Icon  -->      
+                <i class="">    
+                    <img src="../imgs/dashboardimg/langExicon/global_icon.svg"  class=" w-5 h-5 " alt="">
+                </i>  
+    
+              <select title="select language"  
+                     class="bg-transparent text-center font-medium md:text-white  text-gray-500  focus:outline-none" 
+                     name="" id="lng">           
+
+                <option class="text-black" value="English">EN</option>   
+                <option class="text-black" value="Tamil">தமிழ்</option>   
+   
+              </select>
+                 
+         </div>
+
+
+         <!--  Set Family Grouping -->
+         <div class="hidden md:block ">
+             
+            <!-- set family icons  -->
+            <button title="set family icons" class=" border flex justify-center items-center bg-[#009699] text-white   rounded-lg py-2 px-4 mr-6
+                     cursor-pointer " type="button">
+                    <i><img src="../imgs/dashboardimg/voterlisticons/setfamilygroup.svg" class="mr-2" alt=""></i>
+                        Set Family Grouping 
+            </button> 
+
+         </div>
+   
+ 
+        <!-- Excel File Export container  -->
+        <div  id="import_excel_container"  class="import_excel_container hidden  md:flex  justify-center   items-center w-auto   py-2 px-6 bg-[#009699] text-white rounded-lg  cursor-pointer">
+
+          <!-- <label for="fileInput" class="cursor-pointer">Import Voter List </label> -->
+
+          <input type="file" id="fileInput" title="import voter list " accept=".xlsx,.xls" class="hidden"  > 
+    
+             <!-- Excel Import Icon  --> 
+ 
+ 
+           <!-- Display The file name  -->
+            <button onclick="uploadExcel()" title="import_excel-btn" id="fileName" class=" text-md">Export</button>
+ 
+
+            <!-- icon -->
+           <i>       
+            <img src="../imgs/dashboardimg/voterlisticons/Export.svg" alt="" class="h-6 w-6 ml-2">
+           </i> 
+
+        </div>  
+  
+ 
+      <!-- Profile Icon  -->
+       <div class=" md:hidden ml-2 "> 
+        <i>   
+            <img src="../imgs/voterListIcons/top_profile_icon.svg" alt="" class="w-8 h-8">
+        </i>
+       </div>
+
+      </div> 
+
+
+
+    </header>
+ 
+ 
+<!-- Voter Search Bar Container  -->
+    <div class="voterlist_search_bar_container bg-white md:boxShadow2 md:p-5  text-sm  rounded-2xl ">
+
+        <div class="voterlist_serach_bar flex flex-col justify-center gap-6  items-center  text-[#45494D] ">
+
+            <!-- Search Input  --> 
+            <div class=" relative w-full flex justify-center  " >    
+  
+                <input type="search"   class=" w-full p-2.5  pl-11 pr-4  rounded-xl  bg-[#F1F5F9]" placeholder="Search by a Voter ID or Name...">
+                    <!-- Icon --> 
+                  
+                        <span class="absolute left-3 top-2 text-gray-400"> 
+                                <img src="../imgs/dashboardimg/voterfiltericons/voter_search_bar.svg" alt="">
+                        </span>
+ 
+            <div class="md:hidden border border-gray-200 rounded-md flex justify-center items-center mx-2 px-2 bg-[#E9F6EC]">  
+            <i >   
+                <img src="../imgs/voterListIcons/all_filter_icon.svg" alt="" class="w-8 h-8">
+            </i>  
+            </div> 
+
+            </div>      
+
+             
+          
+
+            <!-- Voters All filters --> 
+
+            <div class=" hidden voter_filter_container  md:flex justify-between items-center w-full  ">
+             
+
+                <!-- Voter filter by Location  -->
+                <div class="voter_loct_cont flex justify-center  items-center  boxShadow  w-fit py-2 px-5  rounded-xl bg-[#F1F5F9] ">
+                     
+                        <!-- icon -->  
+                    <i>
+                        <img src="../imgs/dashboardimg/voterfiltericons/voter_location_filter.svg" class="mr-1" alt="">
+
+                    </i> 
+
+                    <select title="voter location filter  "  name="" id="" class="px-2  py-1">
+                        <option value="" >Filter by Location  </option>  
+                    </select>
+ 
+                </div> 
+                <!-- Voter filter by Street    -->
+                 <div class="voter_street_cont flex justify-center  items-center  boxShadow   w-fit py-2 px-5  rounded-xl bg-[#F1F5F9]">
+
+                        <!-- icon -->
+                    <i>
+                        <img src="../imgs/dashboardimg/voterfiltericons/voter_street_filter.svg" alt="">
+
+                    </i>
+
+                    <select title="voter street filter "  class="px-2  py-1" name="" id="">
+                        <option value="">Filter by Street </option> 
+                    </select>
+
+                 </div>
+                 <!-- voter filter by status -->
+                  <div class="voter_status_cont flex justify-center  items-center  boxShadow  w-fit py-2 px-5  rounded-xl bg-[#F1F5F9] ">
+                       
+                        <!-- icon -->
+                    <i>
+                        <img src="../imgs/dashboardimg/voterfiltericons/voter_status_filter.svg" alt="">
+
+                    </i>
+
+                    <select title="voter status filter " class="px-2 py-1" name="" id="">
+                        <option value="">Filter by status </option> 
+                    </select>
+
+
+                  </div> 
+                  <!-- filter resert button  -->
+                   <div class="voter_reset_button_cont    ">
+
+
+                     
+                    <button title="voter filter reset button  " type="button" class=" flex justify-center  items-center    w-fit py-2 px-5  rounded-xl ">
+ 
+                        <i>
+                            <img src="../imgs/dashboardimg/voterfiltericons/reset_voter.svg" alt="" class="mr-2 ">
+                        </i> 
+
+                        Reset Filter 
+                    </button>
+ 
+                   </div>  
+            </div>
+
+
+
+            
+        </div>
+
+
+    </div>
+
+<!-- Voter List Container -->
+<div class="voter_list_main_container mt-5">
+
+    <div class="voter_sub_list_container">
+
+        <div class="overflow-hidden rounded-xl border border-gray-200 shadow">
+
+              <!-- Desktop and tablet view  -->
+            <div class="hidden md:block">
+
+
+                <table class="min-w-full border border-gray-200 divide-y divide-gray-200 boxShadow2">
+
+                    <thead class="bg-gray-100">
+
+                        <tr class="text-[#64748B]">
+
+                            <th class="px-4 py-2 text-center text-sm font-semibold flex items-center">
+
+                                <input title="voter check box" type="checkbox" class="accent-[#009699] mr-2.5" />
+                                VOTER ID
+                            </th>
+
+                            <th class="px-4 py-2 text-center text-sm font-semibold">FULL NAME</th>
+                            <th class="px-4 py-2 text-center text-sm font-semibold">WARD NUMBER</th>
+                            <th class="px-4 py-2 text-center text-sm font-semibold">AGE</th>
+                            <th class="px-4 py-2 text-center text-sm font-semibold">ELIGIBILITY</th>
+                            <th class="px-4 py-2 text-center text-sm font-semibold">STATUS</th>
+                            <th class="px-4 py-2 text-center text-sm font-semibold">DETAILS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- Row 1 -->
+                        <tr>
+                            <td class="px-4 py-2 text-left text-sm font-semibold text-gray-700">
+                                <input title="checkbox" type="checkbox" class="accent-[#009699] mr-2" />
+                                VTR7384910
+                            </td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">Aadil</td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">23</td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">35</td>
+
+                            <td class="px-4 py-3 text-center"> 
+                                <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700">
+                                    Eligible
+                                </span>
+                            </td> 
+
+                            <td class="px-4 py-2 text-center">
+                                <select title="visit or not visited " onchange="updateBg(this)"
+                                    class="text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+                                    <option value="visited">Visited</option>
+                                    <option value="not-visited" class="bg-red-500">Not Visited</option>
+                                </select>
+                            </td>
+
+                            <td class="px-4 py-3 text-sm text-center">
+                                <button
+                                    class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                                    View details
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr>
+                            <td class="px-4 py-2 text-left text-sm font-semibold text-gray-700">
+                                <input title="check box" type="checkbox" class="accent-[#009699] mr-2" />
+                                VTR7384910
+                            </td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">Mugilan</td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">33</td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">24</td>
+
+                            <td class="px-4 py-3 text-center">
+                                <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-700">
+                                    Not eligible
+                                </span>
+                            </td>
+
+                            <td class="px-4 py-2 text-center">
+                                <select title="visited or not visited " onchange="updateBg(this)"
+                                    class="text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+                                    <option value="visited">Visited</option>
+                                    <option value="not-visited" class="bg-red-500">Not Visited</option>
+                                </select>
+                            </td>
+
+                            <td class="px-4 py-3 text-sm text-center">
+                                <button
+                                    class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                                    View details
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr>
+                            <td class="px-4 py-2 text-left text-sm font-semibold text-gray-700">
+                                <input title="check box" type="checkbox" class="accent-[#009699] mr-2" />
+                                VTR7384910
+                            </td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">Kandhan</td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">33</td>
+                            <td class="px-4 py-2 text-center font-semibold text-sm text-[#676D73]">22</td>
+
+                            <td class="px-4 py-3 text-center">
+                                <span class="inline-flex items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-700">
+                                    Pending
+                                </span>
+                            </td>
+
+                            <td class="px-4 py-2 text-center">
+                                <select title="visited or not visited " onchange="updateBg(this)"
+                                    class="text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+                                    <option value="visited">Visited</option>
+                                    <option value="not-visited" class="bg-red-500">Not Visited</option>
+                                </select>
+                            </td>
+
+                            <td class="px-4 py-3 text-sm text-center">
+                                <button
+                                    class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                                    View details
+                                </button>
+                            </td>
+                        </tr> 
+  
+                    </tbody>
+
+                </table>
+            </div>       
+    
+            <!-- Card View for Mobile -->
+    
+            <div class="md:hidden flex flex-col gap-4  p-2">
+ 
+                <!-- CARD 1 --> 
+                <div class=" flex flex-col  rounded-xl boxShadow border border-gray-200  bg-white  ">
+
+ 
+                    <div class="card_details_container flex justify-between items-center px-3 border-b border-gray-200  "> 
+
+                    <!-- Card Details   --> 
+                        <div class=" flex justify-center items-center">   
+  
+                         <i class=" w-fit "> 
+                            <img src="../imgs/card_icon/user.svg" alt=""  class="w-10 h-10">
+                        </i>        
+ 
+                         <div class="ml-2 ">  
+                            <p class="text-md font-medium text-gray-600"> Aadil</p>  
+                            <p class="text-sm font-medium  text-gray-500"><span>Voter ID: </span>VTR7384910</p>
+                            <input title="checkbox" type="checkbox" class="hidden accent-[#009699]" />
+                        </div>   
+   
+                      </div>   
+ 
+                        <!-- Person ward and age -->
+                        <div class=" p-2 text-end" > 
+                            <p class="font-medium text-gray-500"><span>Ward:</span> 23</p>
+                            
+                            <p class="font-medium text-gray-500"><span>Age:</span> 35</p>
+                        </div>
+                                
+ 
+                    </div>  
+                    
+                
+                <!-- Card selection sub container  -->
+                <div class="card_selection_container flex justify-between items-center p-3" >
+
+                    <!-- Eligible or Not Eligible  -->
+                        <div class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700">
+                                    Eligible
+                        </div> 
+                
+
+                    <div class="card_select_sub_container flex justify-center gap-x-2 items-center ">
+
+                    <!--Visited or not Visted button   -->
+                    <select title="visit or not visited " onchange="updateBg(this)"
+                        class="text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+                        <option value="visited">Visited</option>
+                        <option value="not-visited" class="bg-red-500">Not Visited</option>
+                    </select>
+                    
+                    <!-- View Details button  -->  
+                    <button title="view details " 
+                        class=" bg-[#E9F6EC] rounded-md border border-[#E5E5E5] px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                        <img src="../imgs/card_icon/view_details_eye.svg" class="w-5 h-5 " alt="">  
+                    </button>
+                    </div>  
+
+                </div>
+
+                </div> 
+              
+                <!-- CARD 2 --> 
+                <div class=" flex flex-col  rounded-xl boxShadow border border-gray-200  bg-white  ">
+
+ 
+                    <div class="card_details_container flex justify-between items-center px-3 border-b border-gray-200  "> 
+
+                    <!-- Card Details   -->
+                        <div class=" flex justify-center items-center">   
+  
+                         <i class=" w-fit "> 
+                            <img src="../imgs/card_icon/user.svg" alt=""  class="w-10 h-10">
+                        </i>        
+ 
+                         <div class="ml-2 ">  
+                            <p class="text-md font-medium text-gray-600"> Mughilan</p>  
+                            <p class="text-sm font-medium  text-gray-500"><span>Voter ID: </span>VTR7384910</p>
+                            <input title="checkbox" type="checkbox" class="hidden accent-[#009699]" />
+                        </div>   
+   
+                      </div>   
+ 
+                        <!-- Person ward and age -->
+                        <div class=" p-2 text-end" > 
+                            <p class="font-medium text-gray-500"><span>Ward:</span> 23</p>
+                            
+                            <p class="font-medium text-gray-500"><span>Age:</span> 35</p>
+                        </div>
+                                
+ 
+                    </div>  
+                    
+                
+                <!-- Card selection sub container  -->
+                <div class="card_selection_container flex justify-between items-center p-3" >
+
+                    <!-- Eligible or Not Eligible  -->
+                    <div class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-700">
+                        Not eligible
+                    
+                    </div>
+                    
+                     
+
+                
+
+                    <div class="card_select_sub_container flex justify-center gap-x-2 items-center ">
+
+                    <!--Visited or not Visted button   -->
+                       <select title="visit or not visited " onchange="updateBg(this)"
+                            class="text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+                            <option value="visited">Visited</option>
+                            <option value="not-visited" class="bg-red-500">Not Visited</option>
+                        </select>
+
+                    <!-- View Details button  -->  
+                    <button title="view details " 
+                        class=" bg-[#E9F6EC] rounded-md border border-[#E5E5E5] px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                        <img src="../imgs/card_icon/view_details_eye.svg" class="w-5 h-5 " alt="">  
+                    </button>
+                    </div>  
+
+                </div>
+
+                </div> 
+              
+ 
+              
+            </div>
+ 
+
+
+        </div>
+ 
+    </div>
+
+</div>
+
+ 
+ 
+
+ 
+<!-- Pagination Container  -->
+<div  class="flex items-center justify-between  px-0 py-2  md:px-4 md:py-3 border-t border-gray-200 bg-white rounded-b-xl">
+
+ 
+    <!-- Responsive Pagination  -->
+  <div class="flex-1 flex justify-between sm:hidden">
+    <button class="px-4 py-2 text-sm font-medium bg-[#009699] text-white rounded">Previous</button>
+    <button class="ml-3 px-4 py-2 text-sm font-medium bg-[#009699] text-white rounded">Next</button>
+  </div>
+
+
+
+  <!-- Desktop Pagination -->
+  <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between"> 
+
+    <p class="text-sm text-gray-700">
+      Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">50</span> results
+    </p>
+
+    <nav class="inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+      <button class="px-3 py-2 text-sm font-medium bg-white border border-gray-300 text-gray-500 rounded-l-md hover:bg-gray-50">Previous</button>
+      <button class="px-3 py-2 text-sm font-medium bg-[#009699] text-white border border-gray-300">1</button>
+      <button class="px-3 py-2 text-sm font-medium bg-white border border-gray-300 text-gray-500 hover:bg-gray-50">2</button>
+      <button class="px-3 py-2 text-sm font-medium bg-white border border-gray-300 text-gray-500 hover:bg-gray-50">3</button>
+      <button class="px-3 py-2 text-sm font-medium bg-white border border-gray-300 text-gray-500 hover:bg-gray-50">...</button>
+      <button  class="px-3 py-2 text-sm font-medium bg-white border border-gray-300 text-gray-500 hover:bg-gray-50">5</button>
+      <button class="px-3 py-2 text-sm font-medium bg-white border border-gray-300 text-gray-500 rounded-r-md hover:bg-gray-50">Next</button>
+    </nav>
+
+  </div>    
+ 
+</div>
+
+    </main>
+
+    
+  </div>
+ 
+<!-- Bottom Navbar for Mobile --> 
+<nav class="fixed bottom-0 left-0 w-full  bg-white border-t border-gray-300 shadow-md 
+            flex justify-around items-center py-2 md:hidden z-50"> 
+
+    <!-- Dashboard -->
+    <a href="dashboard.html" class="flex flex-col items-center text-gray-700">
+        <img title="dashboard icon" src="../imgs/dashboardimg/asidebar/home.svg" class="w-6 h-6">
+        <span class="text-xs">Dashboard</span>
+    </a>
+
+    <!-- Voters List -->
+    <a href="voterslist.html" class="flex flex-col items-center text-gray-700">
+        <img title="voterlist icon" src="../imgs/dashboardimg/asidebar/voter_list.svg" class="w-6 h-6">
+        <span class="text-xs">Voters List</span>
+    </a>
+
+    <!-- Import Voters -->
+    <a href="#" class="flex flex-col items-center text-gray-700">
+        <img title="import voter icon " src="../imgs/dashboardimg/asidebar/import_voter.svg" class="w-6 h-6">
+        <span class="text-xs">Import</span>
+    </a>
+
+    <!-- Settings -->
+    <a href="profiledetails.html" class="flex flex-col items-center text-gray-700">
+        <img title="profile settings icon" src="../imgs/dashboardimg/asidebar/settings.svg" class="w-6 h-6">
+        <span class="text-xs">Settings</span>
+    </a>
+
+</nav>
+
+
+</div>
+
+ 
+<script>   
+
+// Aside Bar Responsive  
+const sidebar = document.getElementById("sidebar"); 
+const toggleBtn = document.getElementById("toggleBtn");
+const sidebarTexts = document.querySelectorAll(".sidebar-text");
+const headerText = document.getElementById("sidebarText");
+const arrow = toggleBtn.querySelector("img"); 
+ 
+toggleBtn.addEventListener("click", () => {
+
+       if (window.innerWidth < 768) {   
+        sidebar.classList.toggle("-translate-x-full");
+        return;
+    }
+
+    // collapse 
+    if (sidebar.classList.contains("w-64")) {
+
+        sidebar.classList.remove("w-64");
+
+        sidebar.classList.add("w-20");
+
+        arrow.classList.add("rotate-180"); 
+
+        // hide all sidebar text
+
+        sidebarTexts.forEach(t => t.classList.add("hidden")); 
+
+        headerText.classList.add("hidden");
+    }
+    // expand
+    else {
+        sidebar.classList.remove("w-20");
+        sidebar.classList.add("w-64");
+
+        arrow.classList.remove("rotate-180"); 
+
+        // show all sidebar text
+        sidebarTexts.forEach(t => t.classList.remove("hidden"));
+        headerText.classList.remove("hidden");
+    }
+});
+ 
+
+</script>
+
+<script src="../js/script.js"></script>  
+</body>
+</html> 

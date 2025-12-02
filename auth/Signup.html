@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/election_commission_project_f/src/styles/output.css">
+    <title>Sign Up </title>
+</head>
+<body>
+
+ <div class="section1  flex justify-center h-screen w-screen  font-poppins ">
+ 
+    <!-- Elect img Container -->  
+  <div class="election_team_img_container   bg-logbg 
+          w-full h-full bg-check flex  md:flex flex-col justify-between  items-center hidden p-5">
+ 
+
+        <!-- Elect Title  -->    
+         <div class=" w-full  "> 
+             <h1 class="election_title  text-white  italic font-bold text-[28px]  ">Election Team. </h1>
+         </div>
+
+       <!-- Elect Image -->
+        <div class="img_election_cont w-full max-w-sm mx-auto">
+
+        <img 
+            src="../imgs/authimg/rafiki.png" 
+            alt="Election illustration" 
+            class="w-full h-auto object-contain" />
+
+        </div>
+ 
+         <!-- Eleciton Description -->
+       <div class="desc_election font-poppins italic text-[56px] text-center 
+            bg-linear-to-b from-white to-white/40 
+            bg-clip-text text-transparent font-light">  
+ 
+                 Welcome. Access your Election Management Dashboard! 
+      
+         </div>
+
+    </div>
+
+
+
+    <!--Form Main Container  -->
+  <div class="form_main_container w-full p-4  flex flex-col justify-center">
+ 
+    <!-- Form Sub Container -->
+       <div class="form_sub_container    border-red-500 flex items-center flex-col justify-center "  >
+
+
+
+        <!-- Form Container  -->
+        <form action="../dashboard/dashboard.html" class="form_container  border-yellow-300  w-full sm:w-[90%] md-w-[80%] lg:w-[60%] max-w-[700px] p-2 flex flex-col gap-y-6    ">  
+               
+        <!--Form Title   -->     
+        <h2 class="form_main_title font-bold text-3xl  text-[#101828]">Create a account</h2>      
+              
+  
+            <!-- Email  -->  
+            <div class="">  
+                <label for="" class=" inline-block mb-2 ">Email</label>
+                <br> 
+                <input title="Enter your email " type="email"  class="border  p-2.5  
+                  focus:outline-none focus:ring-1 focus:ring-gray-300  focus:border-gray-300
+                 rounded-lg w-full border-gray-300" placeholder="Enter your email" required >
+            </div>  
+
+            <!-- Password   -->  
+            <div class="relative">  
+        
+                <label for="" class="inline-block mb-2">Password</label>  
+                <br> 
+                <input title="Enter your password" type="password" id="password" class=" border p-2.5  max-w-[400px] min-w-full  
+                focus:outline-none focus:ring-1 focus:ring-gray-300  focus:border-gray-300 
+                rounded-lg w-full border-gray-300" placeholder="Enter your password" required >
+
+                <!-- Eye Button Toggle  -->
+                 <button type="button" 
+                  id="togglePassword"
+                  class="absolute right-1 flex items-center px-3 top-7 bottom-0 cursor-pointer"
+                  title="eyebutton">  
+
+                    <!-- eye svg  -->  
+                     <img id="eyeClosed" src="../imgs/authicon/eye_close.svg" class="h-5 w-5 block"  alt="show">
+                     <img id="eyeOpen"  src="../imgs/authicon/eye_open.svg" class="h-5 w-5 hidden "  alt="hidden">
+                 </button>
+ 
+ 
+ 
+            </div> 
+  
+            <!-- Account Create btn -->    
+          <button type="submit" class="border bg-[#009699] font-medium rounded-lg max-w-[400px] min-w-full cursor-pointer p-2.5  items-center text-white ">
+                Create Account
+              </button>
+
+            <!-- Google Account Create btn  --> 
+            <button type="submit" class="font-medium  flex justify-center items-center  cursor-pointer  bg-[#E5E5E5] rounded-lg max-w-[400px] min-w-full p-2.5 text-[#009699]  "> 
+                <img src="../imgs/authicon/google.svg" class="inline-block h-4 w-4 mr-1.5" alt="Goolge log" />
+                Continue with Google    
+                
+            </button>    
+                
+        </form>   
+
+        <!-- Already Account Navigate --> 
+        <div class="already_account_cont mt-4 ">   
+
+            <span class="text-[#98A2B3]">Already Have An Account ?</span> 
+
+              <span class="text-[#009699] font-medium ml-1"><a href="Login.html" >Log in</a></span>
+        </div> 
+
+       </div> 
+
+
+
+  </div> 
+ 
+      
+    
+ </div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

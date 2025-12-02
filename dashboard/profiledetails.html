@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/election_commission_project_f/src/styles/output.css">
+  <title>Profile Details</title>
+</head>
+
+<body>
+
+  <!-- Overall Main Container  -->
+  <div class="flex h-auto font-poppins  ">
+
+    <!-- Sidebar --> 
+<aside id="sidebar" 
+class="w-64 bg-white border-r border-gray-300 transition-all duration-300 
+                fixed md:static h-full z-50 hidden md:block
+              -translate-x-full md:translate-x-0"> 
+ 
+    <!-- Logo Container -->   
+    <div class="p-5 flex items-center justify-between relative">  
+        
+        <div class="flex items-center"> 
+            <!-- Logo -->  
+            <img title="Election commission Logo" src="../imgs/dashboardimg/logo/Logo.svg"
+                 class="h-8 w-8  sidebar-logo">
+            <h1 id="sidebarText" class="text-xl ml-2 font-semibold sidebar-text">Election Team</h1>
+        </div>   
+   
+        <!-- Toggle Button -->    
+        <button id="toggleBtn" type="button"     
+                class="w-8 h-8 cursor-pointer absolute  -right-4   flex items-center justify-end  sm:justify-end md:justify-center  border border-gray-400 bg-white rounded-full transition-all duration-300">
+            <img title="arrow icon     "  
+                 src="../imgs/dashboardimg/navbararrow/leftarrow.svg"    
+                 class="arrowIcon w-4 h-4 "> 
+        </button> 
+    </div>
+ 
+
+    <!-- Navbar -->
+     <nav class="p-2 ">
+        <ul class="p-2 space-y-2"> 
+
+            <!-- Dashbaord  --> 
+            <li class="cursor-pointer">
+                <a href="dashboard.html" class="flex items-center p-3 font-semibold text-sm  rounded-full hover:bg-gray-200  transition duration-300  hover:text-[#009699]">
+               
+                    <!-- Icon  -->
+                    <i>
+                        <img title="dashboard icon"
+                         src="../imgs/dashboardimg/asidebar/home.svg" class=" w-6 h-6">
+ 
+                    </i>
+
+                    <p class="sidebar-text ml-2">Dashboard</p>  
+
+
+                </a>    
+            </li>    
+  
+            <!-- Voter List  -->
+            <li class="cursor-pointer"> 
+                <a href="voterslist.html" class="flex items-center p-3 font-semibold text-sm rounded-full hover:bg-gray-200  transition duration-300  hover:text-[#009699]">
+
+                    <i>
+                        <img title="voter list icon " src="../imgs/dashboardimg/asidebar/voter_list.svg" class="w-6 h-6 ">
+                    </i>
+
+                    <p class="sidebar-text ml-2 ">Voters List</p>
+                </a>
+            </li> 
+
+            <!-- Aside Import voter List  -->
+            <li class=" cursor-pointer">
+                <a href="" class="flex justify-start items-center  text-sm font-semibold  p-3 rounded-full  hover:bg-gray-200  transition duration-300  hover:text-[#009699] ">
+                    <i>
+                        <img src="../imgs/dashboardimg/asidebar/import_voter.svg" class=" w-6 h-6 hover:text-[#009699]"  alt=""> 
+                    </i> 
+                      <p class="sidebar-text ml-2 f ">Import Voter List</p> 
+                
+                </a>    
+            </li> 
+            
+            <!-- Aside Settings   -->
+            <li class="">
+                <a href="profiledetails.html" class="flex justify-start text-sm font-semibold items-center  p-3 rounded-full  hover:bg-gray-200  transition duration-300 hover:text-[#009699] ">
+                    <i>
+                        <img src="../imgs/dashboardimg/asidebar/settings.svg" class=" w-6 h-6 hover:text-[#009699]"  alt="">
+                    </i> 
+        
+                   <p class="sidebar-text ml-2 f ">Settings</p> 
+                </a>    
+            </li>  
+        </ul> 
+
+        <!-- Aside image -->
+        <div class="aside_img_container mt-32">
+            <img title="aside image" src="../imgs/dashboardimg/asidebar/amico.png" class="w-full sidebar-image">
+        </div>
+
+        
+    </nav>
+
+
+
+</aside> 
+ 
+
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col  bg-[#F6F6F8]    ">
+
+      <!-- Main Container  -->   
+
+      <main class=" p-3 md:p-4  h-full  mb-[10%] md:mb-0  ">
+  
+        <!-- Profile Detials Navigation  -->
+        <header class=" flex justify-between items-center mb-5   ">
+
+          <div class=" flex items-center justify-center   ">
+
+              <!-- Back Nav Icon  --> 
+              <i class="md:hidden ">
+                  <img src="../imgs/voterListIcons/nav-arrow-left.svg" alt="" class="w-6 h-6">
+              </i> 
+           
+                  <!-- Profile Detials Navigation  -->  
+                <span class="text-xl md:text-2xl font-semibold md:ml-2 ml-2 "> Personal Detail's
+                  <br> 
+                  <p class="text-sm hidden md:block  text-gray-500">Deploy your new project in one-click </p>
+                </span>
+
+            </div>
+         
+
+
+
+
+          <!-- Language select container   -->
+          <div class=" flex justify-evenly w-auto text-md  ">
+
+        
+            <!--Language Selection   -->
+         <div class="flex justify-evenly items-center border border-gray-300 bg-[#dde1e4] md:bg-[#009699] text-white rounded-lg  py-0 md:px-2 md:mr-6
+                     cursor-pointer px-2 ">      
+        <!-- Lang Icon  -->      
+                <i class="">    
+                    <img src="../imgs/dashboardimg/langExicon/global_icon.svg"  class=" w-5 h-5 " alt="">
+                </i>  
+    
+              <select title="select language"  
+                     class="bg-transparent text-center font-medium md:text-white  text-gray-500  focus:outline-none" 
+                     name="" id="lng">           
+
+                <option class="text-black" value="English">EN</option>   
+                <option class="text-black" value="Tamil">தமிழ்</option>   
+   
+              </select>
+                 
+         </div>
+
+ 
+            <!-- Excel File Export container  -->
+            <div id="import_excel_container"
+              class="import_excel_container hidden md:flex  justify-center   items-center w-auto   py-2 px-6 bg-[#009699] text-white rounded-lg  cursor-pointer">
+
+              <!-- <label for="fileInput" class="cursor-pointer">Import Voter List </label> -->
+
+              <input type="file" id="fileInput" title="import voter list " accept=".xlsx,.xls" class="hidden">
+
+              <!-- Excel Import Icon  -->
+
+
+              <!-- Display The file name  -->
+              <button onclick="uploadExcel()" title="import_excel-btn" id="fileName" class=" text-md">Export</button>
+
+
+              <!-- icon -->
+              <i>
+                <img src="../imgs/dashboardimg/voterlisticons/Export.svg" alt="" class="h-6 w-6 ml-2">
+              </i>
+
+            </div>
+
+        <!-- Profile Icon  -->
+              <div class=" md:hidden ml-2 "> 
+                <i>   
+                    <img src="../imgs/voterListIcons/top_profile_icon.svg" alt="" class="w-8 h-8">
+                </i>
+              </div>
+
+          </div>
+
+
+        </header>
+
+
+        <!-- Personal Details Overall Container   --> 
+        <div class="personal-delails-card-container text-sm   border-red-500  flex flex-wrap justify-center items-start md:flex-nowrap  gap-4 ">
+
+          
+          <!-- Profile card Main container  -->  
+          <div class="profile_card_main_container  p-2 sm:p-5  w-full md:w-[40%] shadow bg-white rounded-lg ">
+
+   
+            <!-- Profile Head container  --> 
+            <div class="profile_name_container flex justify-start items-center  p-4   border-b border-gray-100 w-ful ">
+
+              <!-- Profile img -->
+              <div class="profile_img_container  mr-4  flex justify-center items-center ">
+                <img src="../imgs/profileimg/profile_img2.png" class="w-16  h-16  rounded-full object-cover " alt="">
+              </div>
+
+ 
+              <!-- Profile Name -->
+              <div class="profile_name_sub_container text-lg  font-semibold "> 
+                <p class="profile_name text-[#1F2937]    ">Ashok Kumar</p>
+                <p class="profile_voter_id text-[#6B7280]   ">Voter ID: 
+                  <span>
+                    VTR7384910 
+                  </span>
+                </p> 
+              </div>
+
+            </div>
+
+            <!-- Profile Card Details Container  -->
+            <div class="profile_detials_container  text-[#64748B] font-semibold ">
+
+              <!-- Profile Reations -->
+              <p class="profile_relationship p-4   border-b border-gray-100">Relations Name:
+                <span class="text-[#45494D] ml-2">
+                  Vicky(Father) 
+                </span>
+
+              </p>
+
+              <!-- Profile Address -->
+              <p class="profile_address p-4 border-b border-gray-100">Address:
+                <span class="text-[#45494D] ml-2">
+                  121,main st, Anytown, City pondicherry - 600 106
+                </span>
+              </p>
+
+              <!-- Profile Date of Birth  -->
+              <p class="profile_dob p-4   border-b border-gray-100">
+                Data of Birth :
+                <span class="text-[#45494D] ml-2">
+                  15 Aug 1988 (36 Years)
+                </span>
+              </p>
+
+
+              <!-- Profile Eligibility  -->
+              <p class="profile_eligibility p-4  border-b border-gray-100">Eligibility:
+                <span class="text-red-500 ml-2">
+                  Not Elegible 
+                </span> 
+              </p> 
+
+              <!-- Profile Status -->
+
+              <div class="profile_status p-4   border-b border-gray-100">
+
+                <label for="" class="mr-2"> Status: </label>
+                       
+                    <select title="select visited or not visited" 
+                     onchange="updateBg(this)" 
+                      class=" text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+ 
+                      <option value="visited">Visited</option>  
+                      <option value="not-visited" class="bg-red-500">Not Visited</option>  
+                    </select>       
+
+              </div>
+
+              <!-- Profile Buttons -->
+              <div class="profile_button_container flex justify-between gap-4 mt-4 sm:p-4 px-1  ">
+ 
+                <!-- Profile Set family button -->  
+                <button
+                  class="px-4 py-2 bg-gray-500  font-medium  text-white  rounded-md shadow  hover:bg-gray-600 transition">
+                  Set Family Head
+                </button>
+
+                <!-- Profile All Visited --> 
+                <button
+                  class="px-4 py-2 bg-gray-500 font-medium  text-white  rounded-md shadow hover:bg-gray-600 transition">
+                  All Visited
+                </button>
+              </div>
+
+            </div>
+
+
+          </div>
+  
+ 
+          <!-- Desktop and Tablet View  Family Card Details   -->
+         <div class="profile_family_card_main_contianer hidden sm:block w-full md:w-[60%]  shadow bg-white rounded-lg ">
+
+          
+            <!-- Family Detials Navigation  --> 
+            <div class=" flex justify-between gap-x-2 items-center px-2 py-4 md:p-4  ">
+ 
+
+              <!-- Family card Title  -->
+              <span class="text-xl font-semibold ml-2 ">Family Detail's
+                <br> 
+                <p class="text-sm font-medium  text-gray-500">Total Family Members - <span>05</span> </p>
+              </span>
+
+
+              <!--  Add Family Memeber btn --> 
+              <div class=" ">
+ 
+                <!-- Add family icons  -->
+                <button title="Add family icons" class=" border flex justify-center items-center bg-[#009699] text-white   rounded-lg py-2 px-4 
+                              cursor-pointer " type="button">
+
+                  <i><img src="../imgs/dashboardimg/voterlisticons/addfamily.svg" class="mr-2" alt=""></i>
+                  Add Family Members
+                </button>
+
+              </div>
+ 
+              
+            </div>
+
+          <!-- Famil Table Start Here  -->
+          <div class=""> 
+
+            <div class="overflow-x-auto border rounded-b-lg border-gray-200 ">
+
+              <table class="min-w-full divide-y divide-gray-200"> 
+
+                <thead class="bg-gray-50"> 
+
+                  <tr>
+                    <th scope="col" class="px-4 py-3 text-start text-xs font-semibold text-gray-700 uppercase tracking-wider">NAME</th>
+                    <th scope="col" class="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">RELATIONSHIP</th>
+                    <th scope="col" class="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">ELIGIBILITY</th>
+                    <th scope="col" class="px-4 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">DETAIL's</th>
+                  </tr>
+
+                </thead>
+
+                <tbody class="bg-white divide-y divide-gray-100">
+
+
+                  <!-- Row 1 -->
+                  <tr class="hover:bg-gray-50">   
+
+                    <td class="px-4 py-3 text-start  text-sm text-gray-900 relative">Vicky<span class="text-yellow-400 absolute text-xs "> (Head) </span></td>
+            
+                    <td class="px-4 py-3 text-center text-sm text-gray-700">Father</td>  
+
+                    <td class="px-4 py-3 text-center" >  
+                      <span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700">
+                        Eligible 
+                      </span>
+                    </td>
+
+                    <td class="px-4 py-3 text-sm text-center">
+                      <button class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        View details 
+                      </button>
+                    </td>
+            
+                  </tr>
+
+                  <!-- Row 2  -->
+                  <tr class="hover:bg-gray-50">
+                    
+                    <td class="px-4 py-3 text-sm text-start text-gray-900">Kaviya</td>
+                    <td class="px-4 py-3 text-sm text-center text-gray-700">Mother</td>
+                    
+                    <td class="px-4 py-3 text-center   ">
+                      <span class="inline-flex  items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-700">
+                        Pending
+                      </span>
+                    </td>
+
+                    <td class="px-4 py-3 text-sm text-center ">   
+                      <button class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        View details
+                      </button> 
+                    </td> 
+                  </tr>
+
+                  <!-- Row 3 -->
+
+                  <tr class="hover:bg-gray-50">
+                    
+                    <td class="px-4 py-3 text-start text-sm text-gray-900">Gowri</td>
+
+                    <td class="px-4 py-3 text-center text-sm text-gray-700">Sister</td>
+
+                    <td class="px-4 py-3 text-center">
+
+                      <span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-700">
+                        Not eligible
+                      </span>
+
+                    </td>
+
+                    <td class="px-4 py-3 text-sm text-center">
+
+                      <button class="inline-flex text-center items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        View details
+                      </button>
+
+                    </td> 
+
+                  </tr>
+
+
+
+                </tbody>
+
+              </table>
+
+            </div>
+          </div> 
+          
+       
+ 
+          </div>
+
+
+      <!-- Mobile View Family Card Details  -->    
+            <div class="sm:hidden flex flex-col gap-4  w-full  mb-[20%] ">
+ 
+                <!-- Family Detials Navigation  --> 
+            <div class=" flex justify-between gap-x-2 items-center px-1 py-4 md:p-4  ">
+ 
+ 
+              <!-- Family card Title  -->
+              <span class="text-xl font-semibold ">Family Detail's
+                <br> 
+                <p class="text-sm font-medium  text-gray-500">Total Family Members - <span>05</span> </p>
+              </span>
+
+
+              <!--  Add Family Memeber btn --> 
+              <div class=" ">
+ 
+                <!-- Add family icons  -->
+                <button title="Add family icons" class=" border flex justify-center items-center bg-[#009699] text-white   rounded-lg py-2 px-2 
+                              cursor-pointer " type="button"> 
+
+                  <i><img src="../imgs/dashboardimg/voterlisticons/addfamily.svg" class="mr-2" alt=""></i>
+                  Add 
+                </button>
+
+              </div>
+ 
+              
+            </div>
+ 
+                <!-- CARD 1 --> 
+                <div class=" flex flex-col  rounded-xl boxShadow border border-gray-200  bg-white  ">
+
+ 
+                    <div class="card_details_container flex justify-between items-center p-3 border-b border-gray-200  "> 
+ 
+                    <!-- Card Details   -->
+                        <div class=" flex justify-center items-center">   
+  
+                         <i class=" w-fit "> 
+                            <img src="../imgs/card_icon/user.svg" alt=""  class="w-10 h-10">
+                        </i>        
+ 
+                         <div class="ml-2 ">  
+                            <p class="text-md font-medium text-gray-800"> Vicky <span class="text-orange-400">(Head)</span></p>  
+                            <p class="text-sm font-medium  text-gray-500">Father</p>
+                            <input title="checkbox" type="checkbox" class="hidden accent-[#009699]" /> 
+                        </div>   
+   
+                      </div>    
+ 
+                        <!-- Person ward and age -->
+                        <div class=" text-end " >  
+                       
+                        <!-- View Details button  -->  
+                        <button title="view details " 
+                            class=" bg-[#E9F6EC] rounded-md border border-[#E5E5E5] px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                            <img src="../imgs/card_icon/view_details_eye.svg" class="w-5 h-5 " alt="">  
+                        </button>
+                    
+                        </div>
+                                
+ 
+                    </div>  
+                    
+                
+                <!-- Card selection sub container  -->
+                <div class="card_selection_container flex justify-between items-center p-3" >
+
+                    <!-- Eligible or Not Eligible  -->
+                        <div class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700">
+                                    Eligible
+                        </div> 
+                
+
+                    <div class="card_select_sub_container flex justify-center gap-x-2 items-center ">
+
+                    <!--Visited or not Visted button   -->
+                    <select title="visit or not visited " onchange="updateBg(this)"
+                        class="text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+                        <option value="visited">Visited</option>
+                        <option value="not-visited" class="bg-red-500">Not Visited</option>
+                    </select>
+                    
+                 
+                    </div>  
+
+                </div>
+
+                </div> 
+              
+                <!-- CARD 2 --> 
+                <div class=" flex flex-col  rounded-xl boxShadow border border-gray-200  bg-white  ">
+
+ 
+                    <div class="card_details_container flex justify-between items-center p-3 border-b border-gray-200  "> 
+ 
+                    <!-- Card Details   -->
+                        <div class=" flex justify-center items-center">   
+  
+                         <i class="w-fit "> 
+                            <img src="../imgs/card_icon/user.svg" alt=""  class="w-10 h-10">
+                        </i>        
+ 
+                         <div class="ml-2 ">  
+                            <p class="text-md font-medium text-gray-800">Kavi</p>  
+                            <p class="text-sm font-medium  text-gray-500">Sister</p>
+                            <input title="checkbox" type="checkbox" class="hidden accent-[#009699]" /> 
+                        </div>   
+   
+                      </div>     
+  
+                        <!-- Person ward and age -->
+                        <div class=" text-end" > 
+                       
+                        <!-- View Details button  -->  
+                        <button title="view details " 
+                            class=" bg-[#E9F6EC] rounded-md border border-[#E5E5E5] px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">
+                            <img src="../imgs/card_icon/view_details_eye.svg" class="w-5 h-5 " alt="">  
+                        </button>
+                    
+                        </div>
+                                
+ 
+                    </div>  
+                    
+                
+                <!-- Card selection sub container  -->
+                <div class="card_selection_container flex justify-between items-center p-3" >
+
+                      <!-- Eligible or Not Eligible  -->
+                      <div class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-700">
+                          Not eligible
+                      
+                      </div>
+                
+
+                    <div class="card_select_sub_container flex justify-center gap-x-2 items-center ">
+
+                    <!--Visited or not Visted button   -->
+                    <select title="visit or not visited " onchange="updateBg(this)"
+                        class="text-start bg-[#009699] text-white rounded px-2 py-1 text-sm">
+                        <option value="visited">Visited</option>
+                        <option value="not-visited" class="bg-red-500">Not Visited</option>
+                    </select>
+                    
+                 
+                    </div>  
+
+                </div>
+
+                </div> 
+              
+              
+            </div>
+ 
+
+        </div>
+ 
+ 
+
+
+        </div> 
+
+
+
+
+      </main>
+
+
+    </div> 
+
+<!-- Bottom Navbar for Mobile --> 
+<nav class="fixed bottom-0 left-0 w-full  bg-white border-t border-gray-300 shadow-md 
+            flex justify-around items-center py-2 md:hidden z-50"> 
+
+    <!-- Dashboard -->
+    <a href="dashboard.html" class="flex flex-col items-center text-gray-700">
+        <img title="dashboard icon" src="../imgs/dashboardimg/asidebar/home.svg" class="w-6 h-6">
+        <span class="text-xs">Dashboard</span>
+    </a>
+ 
+    <!-- Voters List -->
+    <a href="voterslist.html" class="flex flex-col items-center text-gray-700">
+        <img title="voterlist icon" src="../imgs/dashboardimg/asidebar/voter_list.svg" class="w-6 h-6">
+        <span class="text-xs">Voters List</span>
+    </a>
+
+    <!-- Import Voters -->
+    <a href="#" class="flex flex-col items-center text-gray-700">
+        <img title="import voter icon " src="../imgs/dashboardimg/asidebar/import_voter.svg" class="w-6 h-6">
+        <span class="text-xs">Import</span>
+    </a>
+
+    <!-- Settings -->
+    <a href="profiledetails.html" class="flex flex-col items-center text-gray-700">
+        <img title="profile settings icon" src="../imgs/dashboardimg/asidebar/settings.svg" class="w-6 h-6">
+        <span class="text-xs">Settings</span>
+    </a>
+
+</nav>
+
+  </div> 
+ 
+ <script>   
+
+// Aside Bar Responsive  
+const sidebar = document.getElementById("sidebar"); 
+const toggleBtn = document.getElementById("toggleBtn");
+const sidebarTexts = document.querySelectorAll(".sidebar-text");
+const headerText = document.getElementById("sidebarText");
+const arrow = toggleBtn.querySelector("img"); 
+ 
+toggleBtn.addEventListener("click", () => {
+
+       if (window.innerWidth < 768) {   
+        sidebar.classList.toggle("-translate-x-full");
+        return;
+    }
+
+    // collapse 
+    if (sidebar.classList.contains("w-64")) {
+
+        sidebar.classList.remove("w-64");
+
+        sidebar.classList.add("w-20");
+
+        arrow.classList.add("rotate-180"); 
+
+        // hide all sidebar text
+
+        sidebarTexts.forEach(t => t.classList.add("hidden")); 
+
+        headerText.classList.add("hidden");
+    }
+    // expand
+    else {
+        sidebar.classList.remove("w-20");
+        sidebar.classList.add("w-64");
+
+        arrow.classList.remove("rotate-180");
+
+        // show all sidebar text
+        sidebarTexts.forEach(t => t.classList.remove("hidden"));
+        headerText.classList.remove("hidden");
+    }
+});
+ 
+
+</script>
+
+<script src="../js/script.js"></script>
+</body>
+
+</html>
