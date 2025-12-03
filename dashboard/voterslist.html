@@ -225,14 +225,15 @@ class="w-64 bg-white border-r border-gray-300 transition-all duration-300
                                 <img src="../imgs/dashboardimg/voterfiltericons/voter_search_bar.svg" alt="">
                         </span>
  
+              <!-- Voter details filter icon   -->
             <div class="md:hidden border border-gray-200 rounded-md flex justify-center items-center mx-2 px-2 bg-[#E9F6EC]">  
             <i >   
-                <img src="../imgs/voterListIcons/all_filter_icon.svg" alt="" class="w-8 h-8">
+                <img src="../imgs/voterListIcons/all_filter_icon.svg" alt="" id="m-filter_icon" class="w-8 h-8">
             </i>  
-            </div> 
-
+            </div>  
+ 
             </div>      
-
+ 
              
           
 
@@ -658,11 +659,73 @@ class="w-64 bg-white border-r border-gray-300 transition-all duration-300
 
 </nav>
 
+  
+<!-- Bottom Sheet Filter Bar -->
+<div id="filterBar" 
+     class="fixed md:hidden bottom-[-100%] z-50 left-0 w-full bg-white shadow-lg rounded-t-xl transition-all duration-300">
+  <div class="p-4 relative">  
+
+    <!-- Title + Close Button -->
+    <h2 class="text-md font-semibold mb-4">Filter Options</h2>
+    <button id="closeFilterBar" 
+            class="absolute top-4 right-4 font-bold text-gray-800 hover:text-gray-700">
+      ✕
+    </button> 
+
+    <!-- Selection 1: Location / Area --> 
+    <label class="block mb-2 font-medium text-gray-700">Location / Area</label>
+       <select class="w-full border text-gray-600 border-gray-500 rounded-lg p-2 mb-6">  
+            <option value="">Select Location</option>
+            <option value="">Pondicherry</option>
+            <option value="">Villupuram</option> 
+            <option value="">Madhurai</option>
+        </select> 
+
+    <!-- Selection 2: Street -->
+    <label class="block mb-2 font-medium text-gray-700">Street</label>
+        <select class="w-full border text-gray-600 border-gray-500 rounded-lg p-2 mb-6">
+            <option value="">Select Street</option>
+            <option value="">Pondicherry</option>
+            <option value="">Villupuram</option>
+            <option value="">Madhurai</option>
+            </select> 
+ 
+    <!-- Selection 3: Filter by Status -->
+    <label class="block mb-2 font-medium  text-gray-700">Filter by Status</label>
+    <select class="w-full border  text-gray-600 border-gray-500 rounded-lg  p-2 mb-6">
+      <option value="">Select status</option>
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+      <option value="pending">Pending</option>
+    </select>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between">
+      <button class="px-4 py-2 bg-gray-300 rounded-lg">Clear Filter</button>
+      <button class="px-4 py-2 bg-[#009699] text-white rounded-lg">Apply Filter</button>
+    </div>
+  </div> 
+</div>
+  
+
 
 </div>
 
  
-<script>   
+<script>  
+
+
+  const filterIcon = document.getElementById('m-filter_icon');
+  const filterBar = document.getElementById('filterBar');
+  const closeBtn = document.getElementById('closeFilterBar');
+
+  filterIcon.addEventListener('click', () => {
+    filterBar.style.bottom = '-1%';
+  });
+ 
+  closeBtn.addEventListener('click', () => {
+    filterBar.style.bottom = '-100%'; 
+  }); 
 
 // Aside Bar Responsive  
 const sidebar = document.getElementById("sidebar"); 
