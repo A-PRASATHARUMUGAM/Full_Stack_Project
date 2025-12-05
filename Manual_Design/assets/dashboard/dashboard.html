@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="/election_commission_project_f/src/styles/output.css">
+       <link rel="stylesheet" href="../css/icons.css">
+    <title>Dashboard </title> 
+</head> 
+<body >
+
+    <!-- Overall Main Container  -->
+  <div class="flex  h-screen font-poppins transition-all duration-300"> 
+  
+                                                <!-- Sidebar -->
+<aside id="sidebar"  
+class="w-64 bg-white border-r border-gray-300 transition-all duration-300 
+                fixed md:static h-full z-50 hidden md:block  
+              -translate-x-full md:translate-x-0 "> 
+ 
+    <!-- Logo Container -->   
+    <div class="p-5 flex items-center justify-between relative">  
+         
+        <div class="flex items-center"> 
+            <!-- Logo -->  
+            <img title="Election commission Logo" src="../imgs/dashboardimg/logo/Logo.svg"
+                 class="h-8 w-8  sidebar-logo">
+            <h1 id="sidebarText" class="text-xl ml-2 font-semibold sidebar-text">Election Team</h1>
+        </div>   
+   
+        <!-- Toggle Button -->    
+        <button id="toggleBtn" type="button"     
+                class="w-8 h-8 cursor-pointer absolute  -right-4   flex items-center justify-end  sm:justify-end md:justify-center  border border-gray-400 bg-white rounded-full transition-all duration-300">
+            <img title="arrow icon     "  
+                 src="../imgs/dashboardimg/navbararrow/leftarrow.svg"    
+                 class="arrowIcon w-4 h-4 "> 
+        </button> 
+    </div>
+ 
+
+    <!-- Navbar -->
+    <nav class="p-2 ">
+        <ul class="p-2 space-y-2"> 
+
+            <!-- Dashbaord  --> 
+            <li class="cursor-pointer">
+                <a href="dashboard.html" class="flex items-center p-3 font-semibold text-sm  rounded-full hover:bg-gray-200  transition duration-300  hover:text-[#009699]">
+                
+                    <!-- Icon  -->
+                    <i>
+                        <img title="dashboard icon"
+                         src="../imgs/dashboardimg/asidebar/home.svg" class=" w-6 h-6">
+ 
+                    </i>
+
+                    <p class="sidebar-text ml-2">Dashboard</p>  
+
+
+                </a>    
+            </li>    
+  
+            <!-- Voter List  -->
+            <li class="cursor-pointer"> 
+                <a href="voterslist.html" class="flex items-center p-3 font-semibold text-sm rounded-full hover:bg-gray-200  transition duration-300  hover:text-[#009699]">
+
+                    <i>
+                        <img title="voter list icon " src="../imgs/dashboardimg/asidebar/voter_list.svg" class="w-6 h-6 ">
+                    </i>
+
+                    <p class="sidebar-text ml-2 ">Voters List</p>
+                </a>
+            </li> 
+
+            <!-- Aside Import voter List  -->
+            <li class=" cursor-pointer">
+                <a href="" class="flex justify-start items-center  text-sm font-semibold  p-3 rounded-full  hover:bg-gray-200  transition duration-300  hover:text-[#009699] ">
+                    <i>
+                        <img src="../imgs/dashboardimg/asidebar/import_voter.svg" class=" w-6 h-6 hover:text-[#009699]"  alt=""> 
+                    </i> 
+                      <p class="sidebar-text ml-2 f ">Import Voter List</p> 
+                
+                </a>    
+            </li> 
+            
+            <!-- Aside Settings   -->
+            <li class="">
+                <a href="profiledetails.html" class="flex justify-start text-sm font-semibold items-center  p-3 rounded-full  hover:bg-gray-200  transition duration-300 hover:text-[#009699] ">
+                    <i>
+                        <img src="../imgs/dashboardimg/asidebar/settings.svg" class=" w-6 h-6 hover:text-[#009699]"  alt="">
+                    </i> 
+        
+                   <p class="sidebar-text ml-2 f ">Settings</p> 
+                </a>    
+            </li>  
+        </ul> 
+
+        <!-- Aside image -->
+        <div class="aside_img_container mt-32">
+            <img title="aside image" src="../imgs/dashboardimg/asidebar/amico.png" class="w-full sidebar-image">
+        </div>
+
+        
+    </nav>
+
+
+
+</aside> 
+
+
+ 
+                                                     <!-- Main Content -->
+  <div class="flex-1 flex flex-col h-auto  "> 
+
+    <!-- Top Nav -->   
+    <header class=" bg-[#F6F6F8] border-b border-gray-300 flex justify-between items-center p-4">
+      <span class="text-2xl  font-semibold ml-2 mr-4 ">Dashboard</span>
+
+
+    <!-- Language select container   --> 
+      <div class=" flex justify-between w-auto text-md "> 
+
+     
+            <!--Language Selection   -->
+         <div class="flex justify-evenly items-center border border-gray-300 bg-[#dde1e4] md:bg-[#009699] text-white rounded-lg  py-0 md:px-2 md:mr-6
+                     cursor-pointer px-2 ">      
+        <!-- Lang Icon  -->      
+                <i class="">    
+                    <img src="../imgs/dashboardimg/langExicon/global_icon.svg"  class=" w-5 h-5 " alt="">
+                </i>  
+    
+              <select title="select language"  
+                     class="bg-transparent text-center font-medium md:text-white  text-gray-500  focus:outline-none" 
+                     name="" id="lng">           
+
+                <option class="text-black" value="English">EN</option>   
+                <option class="text-black" value="Tamil">தமிழ்</option>   
+   
+              </select>
+                 
+         </div>
+ 
+
+        <!-- Excel File Import container  -->
+        <div  id="import_excel_container"  class="import_excel_container hidden  md:flex  justify-center  items-center w-auto   py-2 px-6 bg-[#009699] text-white rounded-lg  cursor-pointer">
+
+          <!-- <label for="fileInput" class="cursor-pointer">Import Voter List </label> -->
+
+          <input type="file" id="fileInput" title="import voter list " accept=".xlsx,.xls" class="hidden"  > 
+    
+             <!-- Excel Import Icon  --> 
+
+ 
+           <!-- Display The file name  -->
+            <button onclick="uploadExcel()" title="import_excel-btn" id="fileName" class=" text-md">Import Voter List</button>
+
+           <i>      
+            <img src="../imgs/dashboardimg/langExicon/cloud-upload.svg" alt="" class="h-6 w-6 ml-2">
+           </i> 
+
+        </div>  
+ 
+        <!-- Profile Icon  -->
+              <div class=" md:hidden ml-2 "> 
+                <i>   
+                    <img src="../imgs/voterListIcons/top_profile_icon.svg" alt="" class="w-8 h-8">
+                </i>
+              </div>
+
+      </div>
+
+
+    </header>
+
+                                                         <!-- Main Container  -->
+ 
+    <main class="p-5 bg-[#F6F6F8]  h-full  "> 
+  
+  
+        <!-- Total Cards Main container -->
+         <div class="total_card_main_container  ">
+ 
+     
+                <!-- Total Card Container -->
+    <div class="total_card_sub_container 
+                grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 
+                gap-6 p-4">
+
+        <!-- Card 1 -->
+        <div class="card voter_count_card 
+                    border border-gray-300 shadow-md 
+                    flex flex-col gap-4 font-semibold 
+                    w-full p-4 bg-white rounded-md 
+                    hover:shadow-lg hover:scale-[1.02] transition-transform duration-200">
+
+            <div class="flex justify-between items-center">
+                <p class="text-lg">Voters Count</p>
+                <img src="../imgs/dashboardimg/cardIcon/voters_count.svg" alt="Voters Count Icon">
+            </div>
+
+            <p class="voters_count_no text-[#009699] text-3xl">
+                234,565
+            </p>
+
+            <p class="voter_count_desc text-sm text-gray-500">
+                Total Registered Voters shows the total voter count.
+            </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card voter_count_card 
+                    border border-gray-300 shadow-md 
+                    flex flex-col gap-4 font-semibold 
+                    w-full p-4 bg-white rounded-md 
+                    hover:shadow-lg hover:scale-[1.02] transition-transform duration-200">
+
+            <div class="flex justify-between items-center">
+                <p class="text-lg">Families Count</p>
+                <img src="../imgs/dashboardimg/cardIcon/family_count.svg" alt="Families Count Icon">
+            </div>
+
+            <p class="voters_count_no text-[#009699] text-3xl">
+                234,565
+            </p>
+
+            <p class="voter_count_desc text-sm text-gray-500">
+                Total Registered Families shows the family count.
+            </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card voter_count_card 
+                    border border-gray-300 shadow-md 
+                    flex flex-col gap-4 font-semibold 
+                    w-full p-4 bg-white rounded-md 
+                    hover:shadow-lg hover:scale-[1.02] transition-transform duration-200">
+
+            <div class="flex justify-between items-center">
+                <p class="text-lg">Finished Visits</p>
+                <img src="../imgs/dashboardimg/cardIcon/finished_visits.svg" alt="Finished Visits Icon">
+            </div>
+
+            <p class="voters_count_no text-[#009699] text-3xl">
+                234,565
+            </p>
+
+            <p class="voter_count_desc text-sm text-gray-500">
+                Completed visits recorded in the system.
+            </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card voter_count_card 
+                    border border-gray-300 shadow-md 
+                    flex flex-col gap-4 font-semibold 
+                    w-full p-4 bg-white rounded-md 
+                    hover:shadow-lg hover:scale-[1.02] transition-transform duration-200">
+
+            <div class="flex justify-between items-center">
+                <p class="text-lg">Pending Visits</p>
+                <img src="../imgs/dashboardimg/cardIcon/pending_visits.svg" alt="Pending Visits Icon">
+            </div>
+
+            <p class="voters_count_no text-[#009699] text-3xl">
+                234,565
+            </p>
+
+            <p class="voter_count_desc text-sm text-gray-500">
+                Visits that are still pending completion.
+            </p>
+        </div>
+
+    </div>
+
+         </div>
+          
+
+
+         <!-- Bar Chart Main Container -->
+          <div class="bard_chart_main_container flex mt-5 gap-5 font-semibold flex-wrap sm:flex-nowrap ">
+ 
+            <!-- Pie chart 1 -->
+               <div class="bar_chart w-full sm:w-1/2 rounded boxShadow h-[250px] bg-white p-4 "> 
+  
+                <div class="bar_chart_title_cont">
+                    <p class="bar_title">Religion</p>
+                </div>  
+ 
+               </div>
+
+            <!-- Pie chart 2  -->
+               <div class="bar_chart  w-full sm:w-1/2  rounded boxShadow h-[250px] bg-white p-4"> 
+ 
+                <div class="bar_chart_title_cont">
+                    <p class="bar_title ">Eligibility Count</p>
+                </div> 
+  
+               </div>
+
+          </div>
+    
+    </main>
+
+    
+  </div>
+ 
+
+<!-- Bottom Navbar for Mobile --> 
+<nav class="fixed bottom-0 left-0 w-full  bg-white border-t border-gray-300 shadow-md 
+            flex justify-around items-center py-2 md:hidden z-50"> 
+
+    <!-- Dashboard -->
+    <a href="#" class="flex flex-col items-center text-gray-700">
+        <img title="dashboard icon" src="../imgs/dashboardimg/asidebar/home.svg" class="w-6 h-6">
+        <span class="text-xs">Dashboard</span>
+    </a>
+
+    <!-- Voters List -->
+    <a href="voterslist.html" class="flex flex-col items-center text-gray-700">
+        <img title="voterlist icon" src="../imgs/dashboardimg/asidebar/voter_list.svg" class="w-6 h-6">
+        <span class="text-xs">Voters List</span>
+    </a>
+
+    <!-- Import Voters -->
+    <a href="#" class="flex flex-col items-center text-gray-700">
+        <img title="import voter icon " src="../imgs/dashboardimg/asidebar/import_voter.svg" class="w-6 h-6">
+        <span class="text-xs">Import</span>
+    </a>
+
+    <!-- Settings -->
+    <a href="profiledetails.html" class="flex flex-col items-center text-gray-700">
+        <img title="profile settings icon" src="../imgs/dashboardimg/asidebar/settings.svg" class="w-6 h-6">
+        <span class="text-xs">Settings</span>
+    </a>
+
+</nav>
+
+
+</div>
+
+
+<script>   
+
+// Aside Bar Responsive  
+const sidebar = document.getElementById("sidebar"); 
+const toggleBtn = document.getElementById("toggleBtn");
+const sidebarTexts = document.querySelectorAll(".sidebar-text");
+const headerText = document.getElementById("sidebarText");
+const arrow = toggleBtn.querySelector("img"); 
+ 
+toggleBtn.addEventListener("click", () => {
+
+       if (window.innerWidth < 768) {   
+        sidebar.classList.toggle("-translate-x-full");
+        return;
+    }
+
+    // collapse 
+    if (sidebar.classList.contains("w-64")) {
+
+        sidebar.classList.remove("w-64");
+
+        sidebar.classList.add("w-20");
+
+        arrow.classList.add("rotate-180"); 
+
+        // hide all sidebar text
+
+        sidebarTexts.forEach(t => t.classList.add("hidden")); 
+
+        headerText.classList.add("hidden");
+    }
+    // expand
+    else {
+        sidebar.classList.remove("w-20");
+        sidebar.classList.add("w-64");
+
+        arrow.classList.remove("rotate-180");
+
+        // show all sidebar text
+        sidebarTexts.forEach(t => t.classList.remove("hidden"));
+        headerText.classList.remove("hidden");
+    }
+});
+
+
+</script>
+
+ 
+ 
+</body>
+</html>
