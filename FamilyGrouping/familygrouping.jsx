@@ -122,7 +122,7 @@ const handleSubmitSelected = async () => {
     {/* Status visited / not visited */}
     <td className="px-4 py-2 text-center">
 
-      <select
+      <select title="visited and not visted"
         value={voter.status}
         onChange={(e) => updateStatus(voter.id, e.target.value)}
         className={`text-start text-white rounded px-2 py-1 text-sm ${getStatusBg(
