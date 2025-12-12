@@ -56,7 +56,7 @@ const [isOpen, setIsOpen] = useState(false);
       <label className="block text-sm font-medium text-gray-700">
         Gender
       </label>
-      <select 
+      <select title="gender selection "
         className="mt-1 block p-2 w-full border-gray-300 rounded-md shadow-sm"
         value={gender}
         onChange={(e) => setGender(e.target.value)}
@@ -72,7 +72,9 @@ const [isOpen, setIsOpen] = useState(false);
       <label className="block text-sm font-medium text-gray-700">
         Eligibility
       </label>
-      <select className="mt-1 block p-2 w-full border-gray-300 rounded-md shadow-sm">
+      <select 
+        title="eligibility selection "
+      className="mt-1 block p-2 w-full border-gray-300 rounded-md shadow-sm">
         <option value="">Select Eligible</option>
         <option value="1">Eligible</option>
         <option value="0">Not Eligible</option>
@@ -84,7 +86,8 @@ const [isOpen, setIsOpen] = useState(false);
       <label className="block text-sm font-medium text-gray-700">
         Status
       </label>
-      <select className="mt-1 block p-2 w-full border-gray-300 rounded-md shadow-sm">
+      <select title="status selection "
+       className="mt-1 block p-2 w-full border-gray-300 rounded-md shadow-sm">
         <option value="">Select Status</option>
         <option value="1">Active</option>
         <option value="0">Inactive</option>
