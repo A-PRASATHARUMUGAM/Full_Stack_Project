@@ -92,6 +92,7 @@ const [totalPages, setTotalPages] = useState(1);
 
       {[...Array(totalPages)].map((_, index) => (
         <button
+          type="button"
           key={index + 1}
           onClick={() => setCurrentPage(index + 1)}
           className={`px-3 sm:px-4 py-2 text-sm font-medium border-r transition ${
