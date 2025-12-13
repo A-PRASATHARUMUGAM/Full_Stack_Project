@@ -1,107 +1,50 @@
-import React, { useEffect, useState } from "react";
-import api from "../api/api"; // your axios instance
+// Pagination
+const [currentPage, setCurrentPage] = useState(1);
+const [perPage, setPerPage] = useState(10);
+const [total, setTotal] = useState(0);
+const [totalPages, setTotalPages] = useState(1);
 
-const VoterLists = () => {
-  const [search, setSearch] = useState("");
-  const [partNo, setPartNo] = useState("");
-  const [sectionNo, setSectionNo] = useState("");
-  const [status, setStatus] = useState("");
-  const [voters, setVoters] = useState([]);
 
-  // Pagination states
-  const [currentPage, setCurrentPage] = useState(1);
-  const [perPage] = useState(10);
-  const [total, setTotal] = useState(0);
-
-  // Fetch voters with filters + pagination
-  const fetchVoters = async () => {
-    try {
-      const res = await api.get("/voterfilter2", {
-        params: {
-          search: search,
-          part_no: partNo,
-          section_no: sectionNo,
-          status: status,
-          page: currentPage,
-          per_page: perPage,
-        },
-      });
-
-      setVoters(res.data.data);
-      setTotal(res.data.total);
-      setCurrentPage(res.data.current_page);
-    } catch (error) {
-      console.error(error);
-    }
-  };
- // Fetch when any filter changes
+  // Fetch when any filter changes
   useEffect(() => {
     fetchVoters();
-  }, [search, partNo, sectionNo, status, currentPage]);
+  }, [search, partNo, sectionNo, status,gender,currentPage,perPage]);
 
-  // Reset Filters
-  const resetFilters = () => {
-    setSearch("");
-    setPartNo("");
-    setSectionNo("");
-    setStatus("");
-    setCurrentPage(1);
-  };
 
-  // UI color for dropdown status
-  const getStatusBg = (value) => {
-    if (value === "1") return "bg-[#009699] text-white";
-    if (value === "0") return "bg-red-500 text-white";
-    return "bg-white text-black";
-  };
+    //Add row change handler Pagination 
+   const handleRowsChange = (value) => {
+  const num = parseInt(value, 10);
+  if (!isNaN(num) && num > 0) {
+    setPerPage(num);
+    setCurrentPage(1); // Reset to first page when rows per page change
+  }
+};
 
-  // Update status API
-  const updateStatus = async (voterId, newStatus) => {
-    try {
-      await api.put(`/voters/${voterId}/status`, {
-        status: newStatus,
-      });
 
-      // Update State
-      setVoters((prev) =>
-        prev.map((v) => (v.id === voterId ? { ...v, status: newStatus } : v))
-      );
-    } catch (error) {
-      alert("Failed to update status!");
-    }
-  };
 
-  // Pagination Logic
-  const totalPages = Math.ceil(total / perPage);
 
-  const goNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-  };
-
-  const goPrev = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
-
-  return (
-    <>
-       
 {/* Pagination Container */}
-<div className="flex items-center justify-between px-0 py-2 md:px-4 md:py-4 border-t border-gray-200 bg-white rounded-b-2xl">
+<div className="flex flex-col sm:flex-row items-center justify-between px-4 py-4 border-t border-gray-200 bg-white rounded-b-2xl mt-4 gap-3">
 
   {/* Row per page filter */}
-  <div className="hidden sm:flex items-center gap-2">
-    <label className="text-sm text-gray-600 font-medium">Rows:</label>
-
-
- {/* // reset to first page */}
-    <select
+  <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full sm:w-auto">
+    <label className="text-sm text-gray-600 font-medium whitespace-nowrap">Rows:</label>
+    
+    {/* Manual input */}
+    <input
+      type="number"
+      min="1"
       value={perPage}
-      onChange={(e) => {
-        setPerPage(Number(e.target.value));
-        setCurrentPage(1);
-      }}
-      className="border border-gray-300 bg-white rounded-lg px-3 py-1.5 text-sm 
-                 text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-[#009699]"
+      onChange={(e) => handleRowsChange(e.target.value)}
+      className="w-20 sm:w-24 border border-gray-300 bg-white rounded-lg px-2 py-1.5 text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-[#009699]"
+      placeholder="Rows"
+    />
+
+    {/* Dropdown */}
+    <select title="row pagination "
+      value={perPage}
+      onChange={(e) => handleRowsChange(e.target.value)}
+      className="w-24 border border-gray-300 bg-white rounded-lg px-2 py-1.5 text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-[#009699]"
     >
       <option value="10">10</option>
       <option value="25">25</option>
@@ -110,92 +53,62 @@ const VoterLists = () => {
     </select>
   </div>
 
-  {/* Mobile View */}
-  <div className="flex-1 flex justify-between sm:hidden">
+  {/* Mobile view */}
+  <div className="flex justify-between w-full sm:hidden">
     <button 
-      onClick={goPrev} 
+      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
       disabled={currentPage === 1}
-      className="px-4 py-2 text-sm font-medium bg-[#009699] text-white rounded-lg shadow 
-      active:scale-95 transition disabled:opacity-50 disabled:active:scale-100"
+      className="px-4 py-2 text-sm font-medium bg-[#009699] text-white rounded-lg shadow active:scale-95 transition disabled:opacity-50 disabled:active:scale-100"
     >
       Previous
     </button>
-
     <button 
-      onClick={goNext}
+      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
       disabled={currentPage === totalPages}
-      className="ml-3 px-4 py-2 text-sm font-medium bg-[#009699] text-white rounded-lg shadow 
-      active:scale-95 transition disabled:opacity-50 disabled:active:scale-100"
+      className="ml-3 px-4 py-2 text-sm font-medium bg-[#009699] text-white rounded-lg shadow active:scale-95 transition disabled:opacity-50 disabled:active:scale-100"
     >
       Next
     </button>
   </div>
 
-  {/* Desktop View */}
-  <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-end">
-
-    {/* Results Summary */}
-    <p className="text-sm text-gray-600 font-medium mr-4">
+  {/* Desktop view */}
+  <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-end gap-4 flex-wrap">
+    <p className="text-sm text-gray-600 font-medium">
       Showing{" "}
-      <span className="font-semibold text-gray-800">
-        {(currentPage - 1) * perPage + 1}
-      </span>{" "}
+      <span className="font-semibold text-gray-800">{(currentPage - 1) * perPage + 1}</span>{" "}
       to{" "}
-      <span className="font-semibold text-gray-800">
-        {Math.min(currentPage * perPage, total)}
-      </span>{" "}
-      of{" "}
-      <span className="font-semibold text-gray-800">
-        {total}
-      </span>{" "}
-      results
+      <span className="font-semibold text-gray-800">{Math.min(currentPage * perPage, total)}</span>{" "}
+      of <span className="font-semibold text-gray-800">{total}</span> results
     </p>
 
-    {/* Pagination */}
-    <nav className="inline-flex rounded-xl overflow-hidden shadow-sm border border-gray-300">
-
-      {/* Prev */}
+    <nav className="inline-flex rounded-xl overflow-hidden shadow-sm border border-gray-300 flex-wrap">
       <button
-        onClick={goPrev}
+        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
         disabled={currentPage === 1}
-        className="px-4 py-2 bg-white text-gray-500 border-r border-gray-300
-        hover:bg-gray-50 transition font-medium disabled:opacity-50"
+        className="px-4 py-2 bg-white text-gray-500 border-r border-gray-300 hover:bg-gray-50 transition font-medium disabled:opacity-50"
       >
         Prev
       </button>
 
-      {/* Page Numbers */}
       {[...Array(totalPages)].map((_, index) => (
         <button
           key={index + 1}
           onClick={() => setCurrentPage(index + 1)}
-          className={`px-4 py-2 text-sm font-medium border-r transition
-            ${currentPage === index + 1
-              ? "bg-[#009699] text-white"
-              : "bg-white text-gray-600 hover:bg-gray-50"}
-          `}
+          className={`px-3 sm:px-4 py-2 text-sm font-medium border-r transition ${
+            currentPage === index + 1 ? "bg-[#009699] text-white" : "bg-white text-gray-600 hover:bg-gray-50"
+          }`}
         >
           {index + 1}
         </button>
       ))}
 
-      {/* Next */}
       <button
-        onClick={goNext}
+        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 bg-white text-gray-500 
-        hover:bg-gray-50 transition font-medium disabled:opacity-50"
+        className="px-4 py-2 bg-white text-gray-500 hover:bg-gray-50 transition font-medium disabled:opacity-50"
       >
         Next
       </button>
-
     </nav>
   </div>
-
 </div>
-
-    </>
-  );
-};
-
-export default VoterLists;

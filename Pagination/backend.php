@@ -1,11 +1,10 @@
 
 <?php
 
-public function filter2(Request $request)
-{
+public function filter2(Request $request){
+
     $query = VoterDetail::query();
 
-    // Search
     if ($request->search) {
         $query->where(function($q) use ($request) {
             $q->where('voter_id_no', 'like', '%' . $request->search . '%')
@@ -14,24 +13,29 @@ public function filter2(Request $request)
         });
     }
 
-    // part no
+    // Filter by part_no (location)
     if ($request->part_no) {
         $query->where('part_no', $request->part_no);
     }
 
-    // section no
+    // Filter by section_no (street)
     if ($request->section_no) {
         $query->where('section_no', $request->section_no);
     }
 
-    // status
+    // Filter by status (visited / not visited)
     if ($request->filled('status')) {
         $query->where('status', $request->status);
     }
 
-    // Pagination
-    $perPage = $request->input('per_page', 10);
-    $result = $query->orderBy('e_name')->paginate($perPage);
+    //Filter by Gender (Male / Female )
+    if($request->gender){
+        $query->where('gender',$request->gender);
+    }
 
-    return response()->json($result);
+    $perPage = $request->per_page ?? 10;
+
+    return response()->json(
+        $query->orderBy('id', 'desc')->paginate($perPage)
+    );
 }
